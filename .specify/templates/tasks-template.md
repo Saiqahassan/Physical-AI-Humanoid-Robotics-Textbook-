@@ -25,6 +25,11 @@ description: "Task list template for feature implementation"
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
 - Paths shown below assume single project - adjust based on plan.md structure
 
+## Guiding Principles
+
+- **Tested Code**: Remember to include tasks for testing all code (ROS 2, Gazebo, Unity, Isaac).
+- **Consistent Pedagogy**: Structure tasks to follow the "Intro → Theory → Code → Example" pattern where applicable.
+
 <!-- 
   ============================================================================
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.

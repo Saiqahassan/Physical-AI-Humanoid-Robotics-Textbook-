@@ -1,0 +1,26 @@
+# Gitignore for the 'hackathon' project
+
+# Build artifacts
+/build/
+/dist/
+*.log
+*.tmp
+*.swp
+.env*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node.js
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Ignore the new project directory
+book-project/

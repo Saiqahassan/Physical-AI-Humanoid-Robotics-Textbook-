@@ -31,7 +31,14 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Accuracy**: Are all claims and technical details traceable to primary/official robotics sources?
+- [ ] **Clarity**: Is the plan clear and understandable for senior CS/AI students?
+- [ ] **Reproducibility**: Does the plan ensure that all simulations and code are reproducible?
+- [ ] **Zero Hallucination**: Is all information factual and free of fabrication? Are citations planned (APA style)?
+- [ ] **Tested Code**: Does the plan include tasks for testing code (ROS 2, Gazebo, Unity, Isaac)?
+- [ ] **Consistent Pedagogy**: Does the plan follow the "Intro → Theory → Code → Example" structure?
+- [ ] **Diagrams**: Are diagrams planned for complex systems?
+- [ ] **Grounded RAG**: If applicable, does the plan ensure the RAG chatbot answers only from book content?
 
 ## Project Structure
 

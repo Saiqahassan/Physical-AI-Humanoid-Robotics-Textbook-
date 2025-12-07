@@ -1,0 +1,93 @@
+openapi: 3.0.0
+info:
+  title: Physical AI & Humanoid Robotics Chatbot API
+  version: 1.0.0
+  description: API for the Retrieval-Augmented Generation (RAG) chatbot for the Physical AI & Humanoid Robotics book.
+
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+
+paths:
+  /chat:
+    post:
+      summary: Send a query to the RAG chatbot
+      operationId: postQuery
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  description: The user's question to the chatbot.
+                  example: "How do I create a ROS 2 node in Python?"
+                session_id:
+                  type: string
+                  description: Optional ID to maintain conversation context.
+                  example: "user123_session456"
+                user_id:
+                  type: string
+                  description: Optional ID for user logging or personalization.
+                  example: "user123"
+      responses:
+        '200':
+          description: Successful response from the chatbot.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - answer
+                  - sources
+                  - session_id
+                  - timestamp
+                properties:
+                  answer:
+                    type: string
+                    description: The generated answer from the RAG model.
+                    example: "To create a ROS 2 node in Python, you typically use the `rclpy` library..."
+                  sources:
+                    type: array
+                    items:
+                      type: string
+                    description: A list of citations or links to the book content used to generate the answer.
+                    example:
+                      - "Module 1: ROS 2 / Chapter: Python Agents + ROS 2 (rclpy)"
+                  session_id:
+                    type: string
+                    description: Echoes the session ID provided in the request or a newly generated one.
+                    example: "user123_session456"
+                  timestamp:
+                    type: string
+                    format: date-time
+                    description: The timestamp when the response was generated.
+        '400':
+          description: Invalid request.
+        '500':
+          description: Internal server error.
+
+  /health:
+    get:
+      summary: Health check endpoint
+      operationId: getHealth
+      responses:
+        '200':
+          description: Service is healthy.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "healthy"
+                  version:
+                    type: string
+                    example: "1.0.0"
+        '503':
+          description: Service is unavailable.

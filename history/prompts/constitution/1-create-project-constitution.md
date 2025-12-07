@@ -1,6 +1,40 @@
-description = "Create or update the project constitution from interactive or provided principle inputs, ensuring all dependent templates stay in sync"
+---
+id: 1
+title: Create Project Constitution
+stage: constitution
+date: 2025-12-07
+surface: agent
+model: gemini
+feature: none
+branch: master
+user: Saiqahassan
+command: /sp.constitution
+labels: [constitution, project-setup]
+links:
+  spec: null
+  ticket: null
+  adr: null
+  pr: null
+files:
+- .specify/memory/constitution.md
+- .specify/templates/plan-template.md
+- .specify/templates/tasks-template.md
+- .gemini/commands/sp.constitution.toml
+- .gemini/commands/sp.analyze.toml
+- .gemini/commands/sp.checklist.toml
+- .gemini/commands/sp.clarify.toml
+- .gemini/commands/sp.git.commit_pr.toml
+- .gemini/commands/sp.implement.toml
+- .gemini/commands/sp.phr.toml
+- .gemini/commands/sp.plan.toml
+- .gemini/commands/sp.specify.toml
+- .gemini/commands/sp.tasks.toml
+tests:
+- none
+---
 
-prompt = """
+## Prompt
+
 ---
 description: Create or update the project constitution from interactive or provided principle inputs, ensuring all dependent templates stay in sync
 ---
@@ -43,7 +77,7 @@ Follow this execution flow:
    - Read `.specify/templates/plan-template.md` and ensure any "Constitution Check" or rules align with updated principles.
    - Read `.specify/templates/spec-template.md` for scope/requirements alignment—update if constitution adds/removes mandatory sections or constraints.
    - Read `.specify/templates/tasks-template.md` and ensure task categorization reflects new or removed principle-driven task types (e.g., observability, versioning, testing discipline).
-   - Read each command file in `.gemini/commands/*.toml` (including this one) to verify no outdated references (agent-specific names like CLAUDE only) remain when generic guidance is required.
+   - Read each command file in `.specify/templates/commands/*.md` (including this one) to verify no outdated references (agent-specific names like CLAUDE only) remain when generic guidance is required.
    - Read any runtime guidance docs (e.g., `README.md`, `docs/quickstart.md`, or agent-specific guidance files if present). Update references to principles changed.
 
 5. Produce a Sync Impact Report (prepend as an HTML comment at top of the constitution file after update):
@@ -95,7 +129,7 @@ As the main request completes, you MUST create and complete a PHR (Prompt Histor
      - `general` → `history/prompts/general/`
 
 3) Create and Fill PHR (Shell first; fallback agent‑native)
-   - Run: `.specify/scripts/powershell/create-phr.ps1 --title "<title>" --stage <stage> [--feature <name>] --json`
+   - Run: `.specify/scripts/bash/create-phr.sh --title "<title>" --stage <stage> [--feature <name>] --json`
    - Open the file and fill remaining placeholders (YAML + body), embedding full PROMPT_TEXT (verbatim) and concise RESPONSE_TEXT.
    - If the script fails:
      - Read `.specify/templates/phr-template.prompt.md` (or `templates/…`)
@@ -105,4 +139,25 @@ As the main request completes, you MUST create and complete a PHR (Prompt Histor
 4) Validate + report
    - No unresolved placeholders; path under `history/prompts/` and matches stage; stage/title/date coherent; print ID + path + stage + title.
    - On failure: warn, don't block. Skip only for `/sp.phr`.
-"""
+
+
+/sp.constitution Project: Physical AI & Humanoid Robotics  Deliverables:  1) Docusaurus book deployed to GitHub Pages  2) Integrated RAG chatbot (OpenAI Agents/ChatKit, FastAPI, Neon Postgres, Qdrant)Purpose:  Create a clear, technically accurate book teaching students how AI systems operate in the physical world using ROS 2, Gazebo, Unity, NVIDIA Isaac, and Vision-Language-Action systems.  All content must be reproducible, rigorous, and grounded in authoritative sources.Core Principles:  - Accuracy from primary/official robotics sources  - Clarity for senior CS/AI students  - Reproducible simulations and code  - Zero hallucination  - All claims traceable and cited (APA)Standards:  - Tested code (ROS 2, Gazebo, Unity, Isaac)  - Consistent pedagogy: Intro → Theory → Code → Example  - Diagrams for complex systems  - RAG chatbot answers only from book content or user-selected text  - No fictional APIs or robotics claimsDomain Scope:  Physical AI, humanoid robotics, ROS 2, URDF, Gazebo physics, Unity rendering, Isaac Sim/ROS, SLAM, Nav2, VLA, Whisper voice commands, cognitive planning, RAG systems.Structure (High-level):  Module 1 — ROS 2 (robotic nervous system)  Module 2 — Gazebo & Unity (digital twin)  Module 3 — NVIDIA Isaac (AI-robot brain)  Module 4 — VLA (language → action)  Capstone — Autonomous humanoidConstraints:  - Accurate, runnable examples  - Zero plagiarism  - Chatbot grounded 100% in text  - Ubuntu 22.04, ROS 2 Humble/Iron, Gazebo, Isaac 4.x  - No unsafe robot-operation instructionsSuccess Criteria:  - Book builds cleanly in Docusaurus  - All tutorials reproducible  - Code runs without modification  - RAG retrieval accuracy ≥ 90%  - No hallucinationsVoice & Tone:  Technical, precise, instructor-level, robotics-focused.Rules:  - All future `/sp.*` outputs must comply with this constitution.  - If a request conflicts, respond: “Request violates constitution.”
+
+## Response snapshot
+
+I have created the project constitution and updated all dependent files.
+
+## Outcome
+
+- ✅ Impact: The project constitution was created and all dependent templates and commands were updated to be consistent with it.
+- 🧪 Tests: none
+- 📁 Files: 14 files updated.
+- 🔁 Next prompts: none
+- 🧠 Reflection: The initial setup of the project constitution is a critical step. It was important to not only create the constitution but also to ensure that all templates and command files were consistent with it. This will help to ensure that all future development work is aligned with the project's core principles.
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: none
+- Graders run and results (PASS/FAIL): PASS
+- Prompt variant (if applicable): null
+- Next experiment (smallest change to try): none
