@@ -1,0 +1,19 @@
+# Python-specific ignores
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# ROS 2 build artifacts
+build/
+install/
+log/
+
+# General ignores
+*.log
+*.tmp
+.env*
+.vscode/

@@ -1,0 +1,14 @@
+# Python-specific ignores
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# General ignores
+*.log
+*.tmp
+.env*
+.vscode/

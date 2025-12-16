@@ -2,7 +2,8 @@
 
 **Branch**: `001-ros2-humanoid-basics` | **Date**: 2025-12-07 | **Plan**: [specs/001-ros2-humanoid-basics/plan.md](specs/001-ros2-humanoid-basics/plan.md)
 
-This data model describes the logical entities that structure the book's content and the components of the integrated RAG (Retrieval-Augmented Generation) chatbot system. While this is not a traditional software data model with database tables, it outlines the conceptual components that will be managed and interacted with.
+This data model describes the logical entities that structure the book's content and the components of the integrated RAG (Retrieval-Augmented Generation) chatbot system. While this is not a traditional software data model with database tab
+
 
 ## Logical Entities
 
