@@ -120,7 +120,7 @@ description: "Actionable, dependency-ordered tasks for Module 3 — The AI-Robot
 - [ ] T032 Integrate all module content and examples into the main Docusaurus site structure (FR-007).
 - [ ] T033 Perform end-to-end verification of the perception-to-navigation pipeline (SC-004).
 - [ ] T034 Validate overall module completion time for target audience (SC-006).
-- [ ] T035 [P] Create sidebars.ts entry in `book-project/docusaurus-site/sidebars.ts` for the new module.
+- [X] T035 [P] Create sidebars.ts entry in `book-project/docusaurus-site/sidebars.ts` for the new module.
 
 ---
 
