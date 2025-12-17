@@ -35,14 +35,14 @@ description: "Actionable, dependency-ordered tasks for Module 3 — The AI-Robot
 - [ ] T002 Clone the repository (if not already cloned) and navigate to the project root.
 - [ ] T003 Set up a dedicated development container (e.g., using `docker compose up -d` and `docker exec`) as outlined in quickstart.md.
 - [ ] T004 Install ROS 2 dependencies using `rosdep install --from-paths src --ignore-src -r -y` inside the development container.
-- [ ] T005 Create Docusaurus documentation structure for Module 3 at `book-project/docusaurus-site/docs/module3-ai-robot-brain/`.
-- [ ] T006 Create base directories for code examples per plan.md: `book-project/robotics-code/isaac-sims/module-3-examples/` and `book-project/robotics-code/ros2-examples/module-3-examples/`.
-- [ ] T007 Copy `spec.md` from `specs/001-isaac-robot-brain/spec.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/spec.md`.
-- [ ] T008 Copy `plan.md` from `specs/001-isaac-robot-brain/plan.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/plan.md`.
-- [ ] T009 Copy `research.md` from `specs/001-isaac-robot-brain/research.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/research.md`.
-- [ ] T010 Copy `data-model.md` from `specs/001-isaac-robot-brain/data-model.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/data-model.md`.
-- [ ] T011 Copy `contracts/README.md` from `specs/001-isaac-robot-brain/contracts/README.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/contracts-overview.md`.
-- [ ] T012 Copy `quickstart.md` from `specs/001-isaac-robot-brain/quickstart.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/quickstart.md`.
+- [X] T005 Create Docusaurus documentation structure for Module 3 at `book-project/docusaurus-site/docs/module3-ai-robot-brain/`.
+- [X] T006 Create base directories for code examples per plan.md: `book-project/robotics-code/isaac-sims/module-3-examples/` and `book-project/robotics-code/ros2-examples/module-3-examples/`.
+- [X] T007 Copy `spec.md` from `specs/001-isaac-robot-brain/spec.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/spec.md`.
+- [X] T008 Copy `plan.md` from `specs/001-isaac-robot-brain/plan.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/plan.md`.
+- [X] T009 Copy `research.md` from `specs/001-isaac-robot-brain/research.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/research.md`.
+- [X] T010 Copy `data-model.md` from `specs/001-isaac-robot-brain/data-model.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/data-model.md`.
+- [X] T011 Copy `contracts/README.md` from `specs/001-isaac-robot-brain/contracts/README.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/contracts-overview.md`.
+- [X] T012 Copy `quickstart.md` from `specs/001-isaac-robot-brain/quickstart.md` to `book-project/docusaurus-site/docs/module3-ai-robot-brain/quickstart.md`.
 
 ---
 
@@ -55,7 +55,7 @@ description: "Actionable, dependency-ordered tasks for Module 3 — The AI-Robot
 - [ ] T013 Ensure NVIDIA Isaac Sim 4.x is installed and accessible (FR-001) at the system level.
 - [ ] T014 Install and configure Isaac ROS official packages (FR-003) within the development environment.
 - [ ] T015 Install and configure the Nav2 framework compatible with ROS 2 Humble or Iron (FR-005) within the development environment.
-- [ ] T016 Create a basic ROS 2 workspace structure for compiling Isaac ROS and Nav2 examples at `book-project/robotics-code/ros2-examples/module-3-examples/ros2_ws/`.
+- [X] T016 Create a basic ROS 2 workspace structure for compiling Isaac ROS and Nav2 examples at `book-project/robotics-code/ros2-examples/module-3-examples/ros2_ws/`.
 
 ---
 
@@ -67,10 +67,10 @@ description: "Actionable, dependency-ordered tasks for Module 3 — The AI-Robot
 
 ### Implementation for User Story 1
 
-- [ ] T017 [P] [US1] Create Isaac Sim scene with a humanoid robot model and basic environment at `book-project/robotics-code/isaac-sims/module-3-examples/humanoid_simulation/humanoid_scene.usd`.
-- [ ] T018 [P] [US1] Implement Python script for programmatic control of the Isaac Sim scene, robot, and sensors at `book-project/robotics-code/isaac-sims/module-3-examples/humanoid_simulation/control_script.py`.
-- [ ] T019 [US1] Develop Python script to utilize Isaac Sim Replicator for synthetic dataset generation (FR-002) at `book-project/robotics-code/isaac-sims/module-3-examples/synthetic_data_generation/generate_dataset.py`.
-- [ ] T020 [US1] Document the synthetic data generation process in Docusaurus within `book-project/docusaurus-site/docs/module3-ai-robot-brain/isaac-sim-chapter.md`.
+- [X] T017 [P] [US1] Create Isaac Sim scene with a humanoid robot model and basic environment at `book-project/robotics-code/isaac-sims/module-3-examples/humanoid_simulation/humanoid_scene.usd`.
+- [X] T018 [P] [US1] Implement Python script for programmatic control of the Isaac Sim scene, robot, and sensors at `book-project/robotics-code/isaac-sims/module-3-examples/humanoid_simulation/control_script.py`.
+- [X] T019 [US1] Develop Python script to utilize Isaac Sim Replicator for synthetic dataset generation (FR-002) at `book-project/robotics-code/isaac-sims/module-3-examples/synthetic_data_generation/generate_dataset.py`.
+- [X] T020 [US1] Document the synthetic data generation process in Docusaurus within `book-project/docusaurus-site/docs/module3-ai-robot-brain/isaac-sim-chapter.md`.
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently.
 
@@ -84,10 +84,10 @@ description: "Actionable, dependency-ordered tasks for Module 3 — The AI-Robot
 
 ### Implementation for User Story 2
 
-- [ ] T021 [US2] Create ROS 2 package structure for VSLAM pipeline at `book-project/robotics-code/ros2-examples/module-3-examples/isaac_ros_vslam_pipeline/`.
-- [ ] T022 [P] [US2] Implement necessary ROS 2 nodes/scripts to bridge Isaac Sim sensor data to Isaac ROS VSLAM (e.g., camera and IMU topics) at `book-project/robotics-code/ros2-examples/module-3-examples/isaac_ros_vslam_pipeline/src/sim_data_bridge.py`.
-- [ ] T023 [US2] Create ROS 2 launch file for Isaac ROS VSLAM pipeline (FR-004) at `book-project/robotics-code/ros2-examples/module-3-examples/isaac_ros_vslam_pipeline/launch/vslam.launch.py`.
-- [ ] T024 [US2] Document the VSLAM setup and execution in Docusaurus within `book-project/docusaurus-site/docs/module3-ai-robot-brain/isaac-ros-chapter.md`.
+- [X] T021 [US2] Create ROS 2 package structure for VSLAM pipeline at `book-project/robotics-code/ros2-examples/module-3-examples/isaac_ros_vslam_pipeline/`.
+- [X] T022 [P] [US2] Implement necessary ROS 2 nodes/scripts to bridge Isaac Sim sensor data to Isaac ROS VSLAM (e.g., camera and IMU topics) at `book-project/robotics-code/ros2-examples/module-3-examples/isaac_ros_vslam_pipeline/src/sim_data_bridge.py`.
+- [X] T023 [US2] Create ROS 2 launch file for Isaac ROS VSLAM pipeline (FR-004) at `book-project/robotics-code/ros2-examples/module-3-examples/isaac_ros_vslam_pipeline/launch/vslam.launch.py`.
+- [X] T024 [US2] Document the VSLAM setup and execution in Docusaurus within `book-project/docusaurus-site/docs/module3-ai-robot-brain/isaac-ros-chapter.md`.
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently.
 
@@ -101,11 +101,11 @@ description: "Actionable, dependency-ordered tasks for Module 3 — The AI-Robot
 
 ### Implementation for User Story 3
 
-- [ ] T025 [US3] Create ROS 2 package structure for Nav2 humanoid navigation at `book-project/robotics-code/ros2-examples/module-3-examples/nav2_humanoid_navigation/`.
-- [ ] T026 [P] [US3] Create Nav2 configuration files for a humanoid robot, adapting costmaps and planners (`book-project/robotics-code/ros2-examples/module-3-examples/nav2_humanoid_navigation/config/humanoid_nav2.yaml`).
-- [ ] T027 [US3] Create ROS 2 launch file to bring up Nav2 stack with humanoid configurations (FR-006) at `book-project/robotics-code/ros2-examples/module-3-examples/nav2_humanoid_navigation/launch/humanoid_navigation.launch.py`.
-- [ ] T028 [US3] Develop ROS 2 node/script to send navigation goals to Nav2 at `book-project/robotics-code/ros2-examples/module-3-examples/nav2_humanoid_navigation/src/goal_publisher.py`.
-- [ ] T029 [US3] Document the Nav2 setup and execution in Docusaurus within `book-project/docusaurus-site/docs/module3-ai-robot-brain/nav2-chapter.md`.
+- [X] T025 [US3] Create ROS 2 package structure for Nav2 humanoid navigation at `book-project/robotics-code/ros2-examples/module-3-examples/nav2_humanoid_navigation/`.
+- [X] T026 [P] [US3] Create Nav2 configuration files for a humanoid robot, adapting costmaps and planners (`book-project/robotics-code/ros2-examples/module-3-examples/nav2_humanoid_navigation/config/humanoid_nav2.yaml`).
+- [X] T027 [US3] Create ROS 2 launch file to bring up Nav2 stack with humanoid configurations (FR-006) at `book-project/robotics-code/ros2-examples/module-3-examples/nav2_humanoid_navigation/launch/humanoid_navigation.launch.py`.
+- [X] T028 [US3] Develop ROS 2 node/script to send navigation goals to Nav2 at `book-project/robotics-code/ros2-examples/module-3-examples/nav2_humanoid_navigation/src/goal_publisher.py`.
+- [X] T029 [US3] Document the Nav2 setup and execution in Docusaurus within `book-project/docusaurus-site/docs/module3-ai-robot-brain/nav2-chapter.md`.
 
 **Checkpoint**: All user stories should now be independently functional.
 
