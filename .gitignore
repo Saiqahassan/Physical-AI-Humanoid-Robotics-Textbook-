@@ -10,6 +10,9 @@ __pycache__/
 venv/
 .pytest_cache/
 
+<<<<<<< HEAD
+# Ignore the new project directory
+=======
 # Unity
 Library/
 Temp/
@@ -31,3 +34,4 @@ UserSettings/
 *.log
 .env*
 node_modules/
+>>>>>>> origin/main
