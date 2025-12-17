@@ -1,25 +1,37 @@
-# Gitignore for the 'hackathon' project
-
-# Build artifacts
-/build/
-/dist/
-*.log
-*.tmp
-*.swp
-.env*
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
-# Node.js
-node_modules/
+# ROS 2
+build/
+install/
+log/
 
 # Python
 __pycache__/
 *.pyc
 .venv/
 venv/
-*.egg-info/
+.pytest_cache/
 
+<<<<<<< HEAD
 # Ignore the new project directory
+=======
+# Unity
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+Packages/
+UserSettings/
+
+# General
+.DS_Store
+*.orig
+*.swp
+*.bak
+*.swo
+.vscode/
+.idea/
+*.log
+.env*
+node_modules/
+>>>>>>> origin/main
