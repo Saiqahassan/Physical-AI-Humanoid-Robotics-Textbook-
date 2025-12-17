@@ -1,0 +1,71 @@
+# humanoid_nav2.yaml
+# This file contains configuration for Nav2 stack adapted for a humanoid robot.
+
+# Common parameters for all Nav2 nodes
+# amcl: # Adaptive Monte Carlo Localization
+#   ros__parameters:
+#     use_sim_time: True
+#     set_initial_pose: True
+#     initial_pose:
+#       x: 0.0
+#       y: 0.0
+#       z: 0.0
+#       # ... other pose parameters
+
+# controller_server:
+#   ros__parameters:
+#     use_sim_time: True
+#     controller_plugin_ids: ["FollowPath"]
+#     controller_plugin_types: ["nav2_controller::FollowPathController"]
+#     FollowPath:
+#       # ... parameters for FollowPathController, e.g., speed limits, acceleration
+
+# planner_server:
+#   ros__parameters:
+#     use_sim_time: True
+#     planner_plugin_ids: ["GridBased"] # Or "Astar", "ThetaStar"
+#     planner_plugin_types: ["nav2_planner::GridBased"]
+#     GridBased:
+#       # ... parameters for GridBased planner, e.g., costmap resolution, inflation radius
+
+# recovery_server:
+#   ros__parameters:
+#     use_sim_time: True
+#     # ... parameters for recovery behaviors
+
+# bt_navigator: # Behavior Tree Navigator
+#   ros__parameters:
+#     use_sim_time: True
+#     # ... behavior tree specific parameters
+
+# costmap_filters_info: # Define costmap filters for humanoid-specific obstacles or terrain
+#   costmap_filter_0:
+#     type: "KeepoutFilter"
+#     filter_info:
+#       # ... parameters for keepout zones (e.g., areas robot cannot enter due to balance)
+
+# ---
+# Local Costmap parameters (for close-range obstacle avoidance)
+# local_costmap:
+#   local_costmap:
+#     ros__parameters:
+#       update_frequency: 5.0
+#       publish_frequency: 2.0
+#       global_frame: odom
+#       robot_base_frame: base_link
+#       # ... other local costmap parameters
+
+# ---
+# Global Costmap parameters (for long-range path planning)
+# global_costmap:
+#   global_costmap:
+#     ros__parameters:
+#       update_frequency: 1.0
+#       publish_frequency: 1.0
+#       global_frame: map
+#       robot_base_frame: base_link
+#       # ... other global costmap parameters
+
+# Add comments and configurations relevant for bipedal locomotion,
+# e.g., specific footprint, inflation layers, speed limitations due to balance,
+# and integration with 3D perception if applicable.

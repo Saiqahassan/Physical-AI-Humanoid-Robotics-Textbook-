@@ -1,25 +1,43 @@
-# Dependencies
-/node_modules
+# Node
+node_modules/
+.next/
+dist/
+build/
+.cache/
 
-# Production
-/build
-
-# Generated files
-.docusaurus
-.cache-loader
-
-# Misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
+# Environment
 .env
-node_modules/
-dist/
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Docusaurus
+.docusaurus/
+build/
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+
+# ROS
+install/
+log/
+
+# IDE
+.vscode/
+.idea/

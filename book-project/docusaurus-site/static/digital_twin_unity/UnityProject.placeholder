@@ -1,0 +1,9 @@
+This is a placeholder file for the Unity project.
+
+To create the Unity project for the digital twin visualization:
+
+1.  Open Unity Hub.
+2.  Create a new 3D project.
+3.  Name the project `digital_twin_unity` and save it in this directory.
+4.  Once the project is created, you can delete this placeholder file.
+5.  Follow the instructions in the `README.md` to set up the ROS 2 integration.
