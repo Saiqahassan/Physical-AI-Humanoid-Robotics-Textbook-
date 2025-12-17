@@ -1,0 +1,30 @@
+# Ignore the .git directory
+.git
+
+# Ignore local development files
+.vscode
+.idea
+*.log
+.env*
+
+# Python
+__pycache__
+*.pyc
+.venv
+venv
+.pytest_cache
+
+# ROS 2 build artifacts
+build/
+install/
+log/
+
+# Unity specific (if the Unity project is mounted into the container)
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+Packages/
+UserSettings/
