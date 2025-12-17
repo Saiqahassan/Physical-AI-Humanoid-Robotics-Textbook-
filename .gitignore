@@ -23,4 +23,3 @@ venv/
 *.egg-info/
 
 # Ignore the new project directory
-book-project/
