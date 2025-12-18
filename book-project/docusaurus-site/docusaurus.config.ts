@@ -7,8 +7,8 @@ const config: Config = {
   tagline: 'Building the Future of Robotics',
   favicon: 'img/favicon.ico',
 
-  url: 'https://saiqahassan.github.io',
-  baseUrl: '/Physical-AI-Humanoid-Robotics-Textbook-/',
+  url: 'https://physical-ai-humanoid-robotics-textbook.vercel.app',
+  baseUrl: '/',
 
   organizationName: 'Saiqahassan',
   projectName: 'Physical-AI-Humanoid-Robotics-Textbook-',
