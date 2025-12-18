@@ -1,6 +1,6 @@
 # Implementation Plan: Physical AI & Humanoid Robotics Book
 
-**Branch**: `001-ros2-humanoid-basics` | **Date**: 2025-12-07 | **Spec**: [specs/001-ros2-humanoid-basics/spec.md](../specs/001-ros2-humanoid-basics/spec.md)
+**Branch**: `001-ros2-humanoid-basics` | **Date**: 2025-12-07 | **Spec**: [specs/001-ros2-humanoid-basics/spec.md](specs/001-ros2-humanoid-basics/spec.md)
 **Input**: Feature specification from `/specs/001-ros2-humanoid-basics/spec.md`
 
 **Note**: This template is filled in by the `/sp.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.

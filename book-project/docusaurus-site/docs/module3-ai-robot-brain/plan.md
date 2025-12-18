@@ -19,7 +19,7 @@ Enable students to build perception, localization, and navigation pipelines for 
 **Project Type**: Single (educational module, runnable examples)
 **Performance Goals**:
     *   Synthetic dataset generation within 30 minutes (SC-001)
-    *   Real-time VSLAM pose estimation (>20 Hz, error <0.1m) (SC-002)
+    * Real-time VSLAM pose estimation (&gt;20 Hz, error &lt;0.1m) (SC-002)
     *   Autonomous navigation reaching 95% of target goals without collisions (SC-003)
 **Constraints**:
     *   ROS 2 Humble or Iron
