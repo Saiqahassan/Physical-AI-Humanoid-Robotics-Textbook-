@@ -1,6 +1,6 @@
 # Research Plan: Physical AI & Humanoid Robotics Book
 
-**Branch**: `001-ros2-humanoid-basics` | **Date**: 2025-12-07 | **Plan**: [specs/001-ros2-humanoid-basics/plan.md](../specs/001-ros2-humanoid-basics/plan.md)
+**Branch**: `001-ros2-humanoid-basics` | **Date**: 2025-12-07 | **Plan**: [specs/001-ros2-humanoid-basics/plan.md](specs/001-ros2-humanoid-basics/plan.md)
 
 ## Key Decisions Research
 
