@@ -1,0 +1,74 @@
+{
+  "info": {
+    "title": "OpenAI GPT-4 API Contract (Chat Completion)",
+    "version": "v1"
+  },
+  "paths": {
+    "/chat/completions": {
+      "post": {
+        "summary": "Creates a model response for the given chat conversation.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "type": "string",
+                    "enum": ["gpt-4", "gpt-4-32k"],
+                    "default": "gpt-4"
+                  },
+                  "messages": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "type": "string",
+                          "enum": ["system", "user", "assistant"]
+                        },
+                        "content": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "choices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "index": { "type": "integer" },
+                          "message": {
+                            "type": "object",
+                            "properties": {
+                              "role": { "type": "string" },
+                              "content": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "info": {
+    "title": "OpenAI Whisper API Contract",
+    "version": "v1"
+  },
+  "paths": {
+    "/audio/transcriptions": {
+      "post": {
+        "summary": "Transcribes audio into the input language.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "model": {
+                    "type": "string",
+                    "enum": ["whisper-1"],
+                    "default": "whisper-1"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
