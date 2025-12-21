@@ -50,7 +50,7 @@ As an AI Engineer, I want the pipeline to efficiently handle updates to the Docu
 - **FR-006**: The pipeline MUST store each text chunk and its corresponding embedding in a specified Qdrant collection.
 - **FR-007**: The pipeline MUST log its progress, including the number of pages crawled, chunks created, and embeddings stored.
 - **FR-008**: The pipeline MUST handle network errors and API failures gracefully with appropriate retries and error logging.
-- **FR-009**: The system MUST support incremental updates. [NEEDS CLARIFICATION: What is the preferred strategy for detecting content changes? (e.g., checksums, last modified headers, git hash)]
+- **FR-009**: The system MUST support incremental updates by using checksums of page content to detect changes.
 
 ### Key Entities *(include if feature involves data)*
 
