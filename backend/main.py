@@ -82,8 +82,7 @@ def extract_text_from_url(url: str):
         logging.error(f"Could not fetch or read {url} after multiple retries: {e}")
         return None
 
-
-def chunk_text(text: str, chunk_size: int = 1024, overlap: int = 128):
+def _chunk_text_processor(text: str, chunk_size: int = 1024, overlap: int = 128):
     """
     Splits text into overlapping chunks.
     """
@@ -97,6 +96,7 @@ def chunk_text(text: str, chunk_size: int = 1024, overlap: int = 128):
         chunks.append(text[start:end])
         start += chunk_size - overlap
     return chunks
+
 
 
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
@@ -120,19 +120,24 @@ def embed(texts: list[str], co_client: cohere.Client):
 
 def create_collection(client: qdrant_client.QdrantClient):
     """
-    Creates the Qdrant collection if it doesn't exist.
+    Creates the Qdrant collection if it doesn't exist, or recreates it if it does,
+    ensuring the 'source_url' payload index is always present.
     """
-    try:
-        client.get_collection(collection_name=COLLECTION_NAME)
-        logging.info(f"Collection '{COLLECTION_NAME}' already exists.")
-    except Exception:
-        client.recreate_collection(
-            collection_name=COLLECTION_NAME,
-            vectors_config=qdrant_client.http.models.VectorParams(
-                size=1024, distance=qdrant_client.http.models.Distance.COSINE
-            ),
-        )
-        logging.info(f"Collection '{COLLECTION_NAME}' created.")
+    if client.collection_exists(collection_name=COLLECTION_NAME):
+        logging.info(f"Collection '{COLLECTION_NAME}' already exists. Deleting and recreating.")
+        client.delete_collection(collection_name=COLLECTION_NAME)
+    
+    client.recreate_collection(
+        collection_name=COLLECTION_NAME,
+        vectors_config=qdrant_client.http.models.VectorParams(
+            size=1024, distance=qdrant_client.http.models.Distance.COSINE
+        ),
+    )
+    client.create_payload_index(
+        collection_name=COLLECTION_NAME,
+                    field_name="source_url",
+                    field_schema="keyword",    )
+    logging.info(f"Collection '{COLLECTION_NAME}' created and 'source_url' indexed.")
 
 def save_chunk_to_qdrant(client: qdrant_client.QdrantClient, chunk_data: dict):
     """
@@ -207,7 +212,8 @@ def main():
                 qdrant.delete(collection_name=COLLECTION_NAME, points_selector=list(existing_chunks.values()))
             continue
 
-        current_chunks = chunk_text(text)
+        current_chunks = _chunk_text_processor(text)
+
         current_checksums = {hashlib.sha256(chunk.encode()).hexdigest() for chunk in current_chunks}
 
         new_checksums = current_checksums - set(existing_chunks.keys())
@@ -219,11 +225,11 @@ def main():
             logging.info(f"Found {len(new_texts)} new or updated chunks for {url}.")
             embeddings = embed(new_texts, co)
             if embeddings:
-                for i, chunk_text in enumerate(new_texts):
-                    chunk_hash = hashlib.sha256(chunk_text.encode()).hexdigest()
+                for i, text_chunk in enumerate(new_texts):
+                    chunk_hash = hashlib.sha256(text_chunk.encode()).hexdigest()
                     chunk_data = {
                         "id": f"{url}#{chunk_hash}",
-                        "text": chunk_text,
+                        "text": text_chunk,
                         "embedding": embeddings[i],
                         "metadata": {"source_url": url, "checksum": chunk_hash},
                     }
