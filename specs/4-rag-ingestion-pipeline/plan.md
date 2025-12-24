@@ -1,61 +1,111 @@
-# Implementation Plan: RAG Ingestion Pipeline
+# Implementation Plan: [FEATURE]
 
-**Feature Branch**: `4-rag-ingestion-pipeline`  
-**Feature Spec**: [spec.md](./spec.md)
-**Created**: 2025-12-22
+**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
+**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
 
-## 1. Technical Context
+**Note**: This template is filled in by the `/sp.plan` command. See `.specify/templates/commands/plan.md` for the execution workflow.
 
-### Technology Stack
-- **Language**: Python 3.9+
-- **Package Manager**: `uv`
-- **Crawling**: `requests` for HTTP requests, `BeautifulSoup4` for HTML parsing.
-- **Embeddings**: `cohere` SDK.
-- **Vector Database**: `qdrant-client` SDK.
-- **Configuration**: `python-dotenv` for managing environment variables.
-- **SiteMap URL**: https://physical-ai-humanoid-robotics-textb-eta.vercel.app/sitemap.xml
+## Summary
 
-### Key Components
-- **`main.py`**: A single script orchestrating the end-to-end ingestion pipeline.
-  - **`get_all_urls`**: Crawls the target site recursively to find all content pages.
-  - **`extract_text_from_url`**: Parses HTML to extract meaningful text.
-  - **`chunk_text`**: Splits text into smaller, overlapping chunks.
-  - **`embed`**: Generates vector embeddings using the Cohere API.
-  - **`create_collection`**: Initializes the `rag_embedding` collection in Qdrant.
-  - **`save_chunk_to_qdrant`**: Upserts chunk data and embeddings into Qdrant.
+[Extract from feature spec: primary requirement + technical approach from research]
 
-### External Dependencies
-- **Cohere API**: Requires a valid API key for generating embeddings.
-- **Qdrant Cloud/Instance**: Requires a URL and API key for storing and managing vectors.
-- **Target Docusaurus Site**: The pipeline is designed to crawl a publicly accessible website.
+## Technical Context
 
-## 2. Constitution Check
+<!--
+  ACTION REQUIRED: Replace the content in this section with the technical details
+  for the project. The structure here is presented in advisory capacity to guide
+  the iteration process.
+-->
 
-- **[✅] Accuracy**: All ingested content comes directly from the source URL.
-- **[✅] Clarity**: The code will be structured with clear functions and comments for readability by senior CS/AI students.
-- **[✅] Reproducibility**: The ingestion process is deterministic and can be reproduced given the same source content.
-- **[✅] Zero Hallucination**: The pipeline only processes existing text; it does not generate new content.
-- **[✅] Tested Code**: Unit and integration tests will be added in the implementation phase to verify each component.
-- **[✅] Grounded RAG**: This pipeline is the first step to ensuring the RAG chatbot is grounded in the book's content.
+**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
+**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
+**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
+**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
+**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Project Type**: [single/web/mobile - determines source structure]  
+**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
+**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
+**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
 
-## 3. Phase 0: Outline & Research
+## Constitution Check
 
-The primary research task was to determine a crawling strategy for the target SPA site. The findings are consolidated in the research document.
+*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-**Artifacts**:
-- [research.md](./research.md)
+- [ ] **Accuracy**: Are all claims and technical details traceable to primary/official robotics sources?
+- [ ] **Clarity**: Is the plan clear and understandable for senior CS/AI students?
+- [ ] **Reproducibility**: Does the plan ensure that all simulations and code are reproducible?
+- [ ] **Zero Hallucination**: Is all information factual and free of fabrication? Are citations planned (APA style)?
+- [ ] **Tested Code**: Does the plan include tasks for testing code (ROS 2, Gazebo, Unity, Isaac)?
+- [ ] **Consistent Pedagogy**: Does the plan follow the "Intro → Theory → Code → Example" structure?
+- [ ] **Diagrams**: Are diagrams planned for complex systems?
+- [ ] **Grounded RAG**: If applicable, does the plan ensure the RAG chatbot answers only from book content?
 
-## 4. Phase 1: Design & Contracts
+## Project Structure
 
-The design phase defines the data structures and startup procedures for the pipeline.
+### Documentation (this feature)
 
-**Artifacts**:
-- [data-model.md](./data-model.md)
-- [quickstart.md](./quickstart.md)
+```text
+specs/[###-feature]/
+├── plan.md              # This file (/sp.plan command output)
+├── research.md          # Phase 0 output (/sp.plan command)
+├── data-model.md        # Phase 1 output (/sp.plan command)
+├── quickstart.md        # Phase 1 output (/sp.plan command)
+├── contracts/           # Phase 1 output (/sp.plan command)
+└── tasks.md             # Phase 2 output (/sp.tasks command - NOT created by /sp.plan)
+```
 
-No formal API contracts are required as the initial implementation is a single-script pipeline. Function signatures in `main.py` serve as internal contracts.
+### Source Code (repository root)
+<!--
+  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
+  for this feature. Delete unused options and expand the chosen structure with
+  real paths (e.g., apps/admin, packages/something). The delivered plan must
+  not include Option labels.
+-->
 
-## 5. Next Steps
+```text
+# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+src/
+├── models/
+├── services/
+├── cli/
+└── lib/
 
-With the plan, research, and design artifacts in place, the next step is to implement the functions in `backend/main.py`.
-This will be handled in the `/sp.implement` or `/sp.tasks` phase.
+tests/
+├── contract/
+├── integration/
+└── unit/
+
+# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
+backend/
+├── src/
+│   ├── models/
+│   ├── services/
+│   └── api/
+└── tests/
+
+frontend/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   └── services/
+└── tests/
+
+# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
+api/
+└── [same as backend above]
+
+ios/ or android/
+└── [platform-specific structure: feature modules, UI flows, platform tests]
+```
+
+**Structure Decision**: [Document the selected structure and reference the real
+directories captured above]
+
+## Complexity Tracking
+
+> **Fill ONLY if Constitution Check has violations that must be justified**
+
+| Violation | Why Needed | Simpler Alternative Rejected Because |
+|-----------|------------|-------------------------------------|
+| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
+| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
